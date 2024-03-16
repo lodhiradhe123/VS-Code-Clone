@@ -1,0 +1,26 @@
+<%- include("./partials/header.ejs")%>
+
+<div id="container">
+  <div id="leftcontainer">
+    <form action="/createfile" method="post">
+      <input type="text" name="filename" id="" placeholder="enter filename" />
+    </form>
+    <hr />
+    <% files.forEach(function(file,index) { %>
+    <!--  -->
+    <ul>
+      <li><a href="/file/<%= file %>"><%= file %></a></li>
+    </ul>
+    <!--  -->
+    <% }) %>
+  </div>
+  <div id="rightcontainer">
+    <form action="">
+      <textarea cols="100" rows="10">
+        <%= filedata %>
+      </textarea>
+    </form>
+  </div>
+</div>
+
+<%- include("./partials/footer.ejs")%>
