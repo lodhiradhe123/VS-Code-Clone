@@ -29,12 +29,17 @@ router.post("/createfile", function (req, res, next) {
 });
 
 router.get("/file/:filename", function (req, res) {
+  const files = fs.readdirSync(globalpath);
   const filedata = fs.readFileSync(
     path.join(globalpath, req.params.filename),
     "utf-8"
   );
-  const files = fs.readdirSync(globalpath);
   res.render("index", { files: files, filedata: filedata });
+});
+
+router.get("/delete/:filename", function (req, res) {
+  fs.unlinkSync(path.join(globalpath, req.params.filename), "");
+  res.redirect("/");
 });
 
 module.exports = router;
