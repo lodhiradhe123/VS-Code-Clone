@@ -18,10 +18,11 @@
     <% }) %>
   </div>
   <div id="rightcontainer">
-    <form action="">
-      <textarea cols="100" rows="10">
+    <form action="/update/<%= filename %>" method="post">
+      <textarea name="filedata" cols="100" rows="10">
         <%= filedata %>
       </textarea>
+      <button>Save</button>
     </form>
   </div>
 </div>
